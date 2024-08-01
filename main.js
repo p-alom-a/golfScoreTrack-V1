@@ -12,6 +12,7 @@ window.addEventListener('beforeunload', function (e) {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     const addPlayerButton = document.getElementById('addPlayerButton');
     const registerPlayersButton = document.getElementById('registerPlayersButton');
     const playerFormStep = document.getElementById('playerFormStep');
@@ -29,10 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentHoleNumberEl = document.getElementById('currentHoleNumber');
     const scoreFormsContainer = document.getElementById('scoreForms');
     const nextHoleButton = document.getElementById('nextHoleButton');
+    
 
     const satelliteViewButton = document.getElementById('satelliteViewButton');
     let currentHole = 0;
-    const totalHoles = 18;
+    const totalHoles = 1;
 
     let satelliteMap = null;
     let currentMarker = null;
@@ -91,7 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resultStep) {
             resultStep.style.display = 'none';
         }
-    }
+    }    
+
 
     addPlayerButton.addEventListener('click', () => {
         const playerForms = document.getElementById('playerForms');
@@ -140,6 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         holePresentationStep.style.display = 'block';
         showHolePresentation();
     });
+
+
 
     startHoleButton.addEventListener('click', () => {
         updateHistoryState('scoreStep', currentHole);
@@ -255,17 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    
-    
-    
-
-
-
-
-
-
-
-
 
     function showModal() {
         const modalImage = document.querySelector('.modal-image');
@@ -306,16 +300,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const signatureContainer = document.createElement('div');
-        signatureContainer.style.border = '1px solid #ddd';
-        signatureContainer.style.borderRadius = '4px';
-        signatureContainer.style.marginTop = '10px';
-        signatureContainer.style.marginBottom = '10px';
+        signatureContainer.className = 'signature-container'; // Appliquez la classe CSS
         signatureContainer.innerHTML = `
             <p>Signature:</p>
-            <canvas id="signature-pad" width="600" height="200" style="border:1px solid #000;"></canvas>
+            <canvas id="signature-pad" width="350" height="200"></canvas>
             <button id="clear-signature">Effacer la signature</button>
         `;
         resultStep.appendChild(signatureContainer);
+        
 
         const sendResultsButton = document.createElement('button');
         sendResultsButton.textContent = 'Envoyer les résultats';
