@@ -9,6 +9,7 @@ body {
 }
 
 .container {
+  position: relative;
   background-color: #fff;
   padding: 30px;
   border-radius: 5px;
@@ -17,6 +18,14 @@ body {
   width: 100vh;
   margin: 1em;
 }
+
+/* Menu*/
+
+
+
+
+
+/* fin menu*/
 
 label {
   display: block;
@@ -184,14 +193,21 @@ button:hover {
   margin: 5px 0;
 }
 
-/* Styles pour le conteneur de la signature */
 .signature-container {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 10px; /* Ajouter du padding pour plus de confort */
   text-align: center;
+  box-sizing: border-box; /* Inclut padding et bordure dans les dimensions */
+}
+
+.signature-container canvas {
+  width: 100%; /* Ajuster la largeur du canvas à celle du conteneur */
+  height: auto; /* Ajuster la hauteur automatiquement */
+  border: 1px solid #000;
+  box-sizing: border-box; /* Inclut la bordure dans les dimensions */
 }
 
 .signature-container button {
@@ -208,12 +224,7 @@ button:hover {
   background-color: #4cae4c;
 }
 
-/* Styles pour le canvas de signature */
-#signature-pad {
-  width: 100%;
-  height: auto;
-  border: 1px solid #000;
-}
+
 
 /* Styles pour le bouton d'envoi des résultats */
 #sendResultsButton {
