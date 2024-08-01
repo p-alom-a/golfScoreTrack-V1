@@ -1,0 +1,259 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100vh;
+  margin: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"], input[type="number"] {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px; 
+}
+
+
+h2 {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+.add-player {
+  background-color: #337ab7;
+  margin-bottom: 10px;
+}
+
+.add-player:hover {
+  background-color: #286090;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh; /* Ajustez si nécessaire */
+  display: block;
+  margin: auto; /* Centrer l'image si elle est plus petite que la modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#map {
+  width: 100%;
+  height: 400px; 
+  margin: auto;
+  background: no-repeat center center;
+  background-size: contain; 
+}
+
+
+#satelliteMap {
+  width: 100%;
+  height: 500px; 
+}
+
+/* tableau previous score */
+.previous-scores {
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.scrollable-table-container {
+  overflow-x: auto;
+}
+
+.previous-scores table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ajustez cette valeur en fonction de la largeur de votre table */
+}
+
+.previous-scores th, .previous-scores td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.previous-scores th {
+  background-color: #f4f4f4;
+}
+
+.previous-scores td {
+  background-color: #fff;
+}
+
+
+/* Styles généraux pour la page des résultats */
+.resultStep {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+/* Styles pour les résultats des joueurs */
+.player-results {
+  margin-bottom: 20px;
+}
+
+.player-results p {
+  margin: 5px 0;
+}
+
+/* Styles pour le conteneur de la signature */
+.signature-container {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.signature-container button {
+  padding: 8px 12px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signature-container button:hover {
+  background-color: #4cae4c;
+}
+
+/* Styles pour le canvas de signature */
+#signature-pad {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+}
+
+/* Styles pour le bouton d'envoi des résultats */
+#sendResultsButton {
+  padding: 10px 15px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+}
+
+#sendResultsButton:hover {
+  background-color: #4cae4c;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .resultStep {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .player-results p {
+    font-size: 14px;
+  }
+
+  .signature-container {
+    padding: 8px;
+  }
+
+  .signature-container button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  #sendResultsButton {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

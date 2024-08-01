@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Formulaire d'enregistrement des joueurs -->
+        <div id="playerFormStep">
+            <h2>Enregistrement des joueurs</h2>
+            <div id="playerForms">
+                <div class="playerForm">
+                    <label for="name1">Nom:</label>
+                    <input type="text" id="name1" name="name1" required>
+                    <label for="color1">Couleur de départ:</label>
+                    <select id="color1" name="color1" required>
+                        <option value="jaune">Jaune</option>
+                        <option value="blanc">Blanc</option>
+                        <option value="noir">Noir</option>
+                        <option value="bleu">Bleu</option>
+                        <option value="rouge">Rouge</option>
+                    </select>
+                </div>
+            </div>
+            <button id="addPlayerButton" class="add-player">Ajouter un joueur</button>
+            <button id="registerPlayersButton">Enregistrer les joueurs</button>
+        </div>
+
+        <!-- Section de présentation du trou -->
+        <div id="holePresentationStep" style="display:none;">
+            <h2>Trou <span id="holeNumber"></span></h2>
+            <button id="satelliteViewButton">Vue Satellite</button>
+            <div id="map"></div>
+            <div id="holeInfos"></div>
+            <button id="startHoleButton">Noter le score</button>
+        </div>
+
+        <!-- Section d'enregistrement du score -->
+        <div id="scoreStep" style="display:none;">
+            <h2>Score <span id="currentHoleNumber"></span></h2>
+            <div id="scoreForms"></div>
+            <button id="nextHoleButton">Enregistrer et Passer au suivant</button>
+        </div>
+
+        <!-- Modale pour la vue satellite -->
+        <div id="satelliteModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="satelliteClose">&times;</span>
+                <div id="satelliteMap"></div>
+            </div>
+        </div>
+
+        <!-- Modale pour l'image de transition -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="transitionClose">&times;</span>
+                <img src="./image/illu.jpg" alt="Image de transition" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclus les scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.2/dist/signature_pad.umd.min.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
