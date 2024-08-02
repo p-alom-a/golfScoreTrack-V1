@@ -146,21 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-startHoleButton.addEventListener('click', () => {
-    // Préparer l'image du prochain trou
-    const nextHole = golfApp.getCurrentHole() + 1;
-    if (nextHole < totalHoles) {
-        const nextImage = pub[nextHole];
-        const nextHoleImage = new Image();
-        nextHoleImage.src = nextImage;  // Précharger l'image pour le prochain trou
-    }
 
-    updateHistoryState('scoreStep', currentHole);
-    hideAllSteps();
-    scoreStep.style.display = 'block';
-    currentHoleNumberEl.textContent = currentHole + 1;
-    generateScoreForms();
-});
+    startHoleButton.addEventListener('click', () => {
+        updateHistoryState('scoreStep', currentHole);
+        hideAllSteps();
+        scoreStep.style.display = 'block';
+        currentHoleNumberEl.textContent = currentHole + 1;
+        generateScoreForms();
+    });
 
 
     nextHoleButton.addEventListener('click', () => {
