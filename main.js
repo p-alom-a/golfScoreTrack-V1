@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const satelliteViewButton = document.getElementById('satelliteViewButton');
     let currentHole = 0;
-    const totalHoles = 3;
+    const totalHoles = 5;
 
     let satelliteMap = null;
     let currentMarker = null;
