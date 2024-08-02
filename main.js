@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const satelliteViewButton = document.getElementById('satelliteViewButton');
     let currentHole = 0;
-    const totalHoles = 3;
+    const totalHoles = 18;
 
     let satelliteMap = null;
     let currentMarker = null;
@@ -143,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         holePresentationStep.style.display = 'block';
         showHolePresentation();
     });
-
 
 
     // startHoleButton.addEventListener('click', () => {
@@ -279,21 +278,68 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(e.message);
     }
 
-
-
+   //avec récap score
 
     function generateScoreForms() {
+        const scoreFormsContainer = document.getElementById('scoreForms');
         scoreFormsContainer.innerHTML = '';
+    
+        // Vérifiez si des trous ont été enregistrés
+        if (currentHole > 0) {
+            // Créer l'en-tête du tableau avec les numéros des trous
+            let tableHeader = '<thead><tr><th>Joueur</th>';
+            for (let i = 1; i <= currentHole; i++) {
+                tableHeader += `<th>Trou ${i}</th>`;
+            }
+            tableHeader += '</tr></thead>';
+    
+            // Créer le corps du tableau avec les scores des joueurs
+            let tableBody = '<tbody>';
+            golfApp.getAllPlayers().forEach(player => {
+                let playerScores = player.scores.slice(0, currentHole).map(score => score || '').join('</td><td>');
+                tableBody += `<tr><td>${player.name}</td><td>${playerScores}</td></tr>`;
+            });
+            tableBody += '</tbody>';
+    
+            // Ajouter le tableau avec les scores précédents
+            scoreFormsContainer.innerHTML += `
+                <div class="previous-scores">
+                    <strong>Scores précédents:</strong>
+                    <div class="scrollable-table-container">
+                        <table>
+                            ${tableHeader}
+                            ${tableBody}
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+    
+        // Ajouter les formulaires de score pour le trou actuel
         golfApp.getAllPlayers().forEach(player => {
             const scoreForm = document.createElement('div');
             scoreForm.className = 'scoreForm';
             scoreForm.innerHTML = `
-                <p>${player.name}</p>
+                <p><strong>${player.name}</strong></p>
                 <input type="number" value="${player.scores[currentHole] || ''}" placeholder="Entrez votre score" required>
             `;
             scoreFormsContainer.appendChild(scoreForm);
         });
     }
+
+
+    // function generateScoreForms() {
+    //     scoreFormsContainer.innerHTML = '';
+    //     golfApp.getAllPlayers().forEach(player => {
+    //         const scoreForm = document.createElement('div');
+    //         scoreForm.className = 'scoreForm';
+    //         scoreForm.innerHTML = `
+    //             <p>${player.name}</p>
+    //             <input type="number" value="${player.scores[currentHole] || ''}" placeholder="Entrez votre score" required>
+    //         `;
+    //         scoreFormsContainer.appendChild(scoreForm);
+    //     });
+    // }
 
 
 
@@ -396,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const signatureDataUrl = signaturePad.toDataURL();
 
-        emailjs.send('service_vkyjis8', 'template_p3kq7t2', {
+        emailjs.send('service_vkyjis8', 'template_yzyr9hy', {
             results: results,
             playerNames: playerNames,
             signature: signatureDataUrl
