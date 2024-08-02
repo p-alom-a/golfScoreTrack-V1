@@ -1,7 +1,7 @@
 const holes = [
-    { trou: 1, distances: { jaune: '347m', blanc: '358m', noir: '326m', bleu: '297m', rouge: '272m' }, par: 4,center: [48.56381, 2.50325],image:'./trou1.png' },
-    { trou: 2, distances: { jaune: '319m', blanc: '330m', noir: '310m', bleu: '304m', rouge: '290m' }, par: 4,center: [48.565474, 2.506346],image:'./trou2.png' },
-    { trou: 3, distances: { jaune: '120m', blanc: '134m', noir: '134m', bleu: '111m', rouge: '104m' }, par: 3,center: [48.565978,2.505412],image:'./trou3.png' },
+    { trou: 1, distances: { jaune: '347m', blanc: '358m', noir: '326m', bleu: '297m', rouge: '272m' }, par: 4,center: [48.56381, 2.50325],image:'./trou1.webp' },
+    { trou: 2, distances: { jaune: '319m', blanc: '330m', noir: '310m', bleu: '304m', rouge: '290m' }, par: 4,center: [48.565474, 2.506346],image:'./trou2.webp' },
+    { trou: 3, distances: { jaune: '120m', blanc: '134m', noir: '134m', bleu: '111m', rouge: '104m' }, par: 3,center: [48.565978,2.505412],image:'./trou3.webp' },
     { trou: 4, distances: { jaune: '433m', blanc: '444m', noir: '444m', bleu: '424m', rouge: '416m' }, par: 5,center: [48.567519,2.510862],image:'./trou4.png' },
     { trou: 5, distances: { jaune: '377m', blanc: '398m', noir: '398m', bleu: '342m', rouge: '342m' }, par: 4,center: [48.568327,2.514030],image:'./trou5.png' },
     { trou: 6, distances: { jaune: '274m', blanc: '290m', noir: '290m', bleu: '246m', rouge: '240m' }, par: 4,center: [48.567346, 2.513118],image:'./trou6.png' },
