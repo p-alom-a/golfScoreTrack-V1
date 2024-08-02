@@ -182,15 +182,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+   // closeModal.addEventListener('click', () => {
+     //   modal.style.display = 'none';
+       // if (golfApp.getCurrentHole() < totalHoles) {
+         //   updateHistoryState('holePresentationStep', currentHole);
+           // hideAllSteps();
+            //holePresentationStep.style.display = 'block';
+           // showHolePresentation();
+        //}
+   // });
+
     closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-        if (golfApp.getCurrentHole() < totalHoles) {
-            updateHistoryState('holePresentationStep', currentHole);
-            hideAllSteps();
-            holePresentationStep.style.display = 'block';
-            showHolePresentation();
-        }
-    });
+    modal.style.display = 'none';
+
+    // Précharger l'image pour la prochaine modal
+    if (golfApp.getCurrentHole() < totalHoles - 1) {
+        const nextHoleImage = pub[golfApp.getCurrentHole() + 1];
+        const tempImg = new Image();
+        tempImg.src = nextHoleImage;
+        tempImg.onload = () => {
+            // Une fois l'image préchargée, vous pouvez afficher la modal lorsque l'utilisateur clique sur le bouton pour ouvrir la modal
+            satelliteViewButton.onclick = () => {
+                showModal(); // Assurez-vous que la fonction showModal() est bien définie
+            };
+        };
+    }
+
+    if (golfApp.getCurrentHole() < totalHoles) {
+        updateHistoryState('holePresentationStep', currentHole);
+        hideAllSteps();
+        holePresentationStep.style.display = 'block';
+        showHolePresentation();
+    }
+});
+
 
     closeSatelliteModal.addEventListener('click', () => {
         satelliteModal.style.display = 'none';
@@ -263,11 +288,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+   //  function showModal() {
+      //  const modalImage = document.querySelector('.modal-image');
+     //   modalImage.src = pub[currentHole];
+    //    modal.style.display = 'block';
+ //   }
+
     function showModal() {
-        const modalImage = document.querySelector('.modal-image');
-        modalImage.src = pub[currentHole];
-        modal.style.display = 'block';
-    }
+    const modalImage = document.querySelector('.modal-image');
+    modalImage.src = pub[currentHole];
+    modal.style.display = 'block';
+}
+
+    
 
     function showHolePresentation() {
         const hole = holes[currentHole];
