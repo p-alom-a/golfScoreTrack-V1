@@ -34,12 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const satelliteViewButton = document.getElementById('satelliteViewButton');
     let currentHole = 0;
-    const totalHoles = 18;
+    const totalHoles = 3;
 
     let satelliteMap = null;
     let currentMarker = null;
-
-
 
     class Player {
         constructor(name, color) {
@@ -182,18 +180,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-   // closeModal.addEventListener('click', () => {
-     //   modal.style.display = 'none';
-       // if (golfApp.getCurrentHole() < totalHoles) {
-         //   updateHistoryState('holePresentationStep', currentHole);
-           // hideAllSteps();
-            //holePresentationStep.style.display = 'block';
-           // showHolePresentation();
-        //}
-   // });
+    // closeModal.addEventListener('click', () => {
+    //     modal.style.display = 'none';
+    //     if (golfApp.getCurrentHole() < totalHoles) {
+    //         updateHistoryState('holePresentationStep', currentHole);
+    //         hideAllSteps();
+    //         holePresentationStep.style.display = 'block';
+    //         showHolePresentation();
+    //     }
+    // });
 
-    
-   closeModal.addEventListener('click', () => {
+
+    closeModal.addEventListener('click', () => {
         // Préparer la prochaine image en la définissant comme source
         const nextHole = golfApp.getCurrentHole() + 1;
         if (nextHole < totalHoles) {
@@ -212,6 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
             showHolePresentation();
         }
     });
+    
+    
+
+
+
+
+
 
     closeSatelliteModal.addEventListener('click', () => {
         satelliteModal.style.display = 'none';
@@ -284,18 +289,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-   //  function showModal() {
-      //  const modalImage = document.querySelector('.modal-image');
-     //   modalImage.src = pub[currentHole];
-    //    modal.style.display = 'block';
- //   }
-
+    // function showModal() {
+    //     const modalImage = document.querySelector('.modal-image');
+    //     modalImage.src = pub[currentHole];
+    //     modal.style.display = 'block';
+    // }
 
     function showModal() {
         const modalImage = document.querySelector('.modal-image');
         modalImage.src = pub[currentHole];
         modal.style.display = 'block';
     }
+    
+    
 
     
 
