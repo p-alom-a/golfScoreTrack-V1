@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // function showHolePresentation() {
+    function showHolePresentation() {
         const hole = holes[currentHole];
         holeNumberEl.textContent = currentHole + 1;
     
