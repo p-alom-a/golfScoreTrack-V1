@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const signatureDataUrl = signaturePad.toDataURL();
 
-        emailjs.send('service_vkyjis8', 'template_yzyr9hy', {
+        emailjs.send('service_vkyjis8', 'template_p3kq7t2', {
             results: results,
             playerNames: playerNames,
             signature: signatureDataUrl
