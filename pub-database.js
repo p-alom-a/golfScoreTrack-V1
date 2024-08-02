@@ -13,8 +13,8 @@ const pub = [
     './pub12.jpg',
     './pub13.jpg',
     './pub14.jpg',
-    './pub15.jpg',
-    './pub16.jpg',
+    './pub15.webp',
+    './pub16.webp',
     './pub17.jpg',
     './pub18.jpg'
 ];
