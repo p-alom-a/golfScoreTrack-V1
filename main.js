@@ -305,23 +305,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 
-    function showHolePresentation() {
+    //function showHolePresentation() {
+       // const hole = holes[currentHole];
+        //holeNumberEl.textContent = currentHole + 1;
+
+        //document.getElementById('map').style.backgroundImage = `url("${hole.image}")`;
+
+        //holeInfosEl.innerHTML = `
+          //  <div>Par: ${hole.par}</div>
+        //`;
+
+       // const uniqueColors = new Set(golfApp.getAllPlayers().map(player => player.color));
+
+        //uniqueColors.forEach(color => {
+          //  const distance = hole.distances[color];
+            //holeInfosEl.innerHTML += `<div>Distance départ ${color}: ${distance}</div>`;
+       // });
+   // }
+
+
+function showHolePresentation() {
         const hole = holes[currentHole];
         holeNumberEl.textContent = currentHole + 1;
-
-        document.getElementById('map').style.backgroundImage = `url("${hole.image}")`;
-
+    
+        // Créer une balise <img> pour lazy loading
+        const lazyImage = document.createElement('img');
+        lazyImage.src = hole.image; // Définir la source de l'image
+        lazyImage.loading = 'lazy'; // Activer le lazy loading
+        lazyImage.style.display = 'none'; // Cacher l'image
+    
+        // Définir l'image de fond lorsque l'image est chargée
+        lazyImage.onload = () => {
+            document.getElementById('map').style.backgroundImage = `url("${hole.image}")`;
+        };
+    
+        // Ajouter l'image au DOM
+        document.body.appendChild(lazyImage); // Ajouter l'image au body ou à un conteneur adéquat
+    
         holeInfosEl.innerHTML = `
             <div>Par: ${hole.par}</div>
         `;
-
+    
         const uniqueColors = new Set(golfApp.getAllPlayers().map(player => player.color));
-
+    
         uniqueColors.forEach(color => {
             const distance = hole.distances[color];
             holeInfosEl.innerHTML += `<div>Distance départ ${color}: ${distance}</div>`;
         });
     }
+
+
 
     function displayResults() {
         hideAllSteps(); 
