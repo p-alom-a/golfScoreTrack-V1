@@ -314,18 +314,15 @@ document.addEventListener('DOMContentLoaded', () => {
         holeNumberEl.textContent = currentHole + 1;
     
         // Créer une balise <img> pour lazy loading
-        const lazyImageSrc = hole.image; // Stocker la source de l'image dans une variable
         const lazyImage = document.createElement('img');
-        lazyImage.src = lazyImageSrc; // Définir la source de l'image
+        lazyImage.src = hole.image; // Définir la source de l'image
         lazyImage.loading = 'lazy'; // Activer le lazy loading
         lazyImage.style.display = 'none'; // Cacher l'image
     
         // Définir l'image de fond lorsque l'image est chargée
-        if (!lazyImage.complete) { // Vérifier si l'image n'a pas été chargée
-            lazyImage.onload = () => {
-                document.getElementById('map').style.backgroundImage = `url("${lazyImageSrc}")`;
-            };
-        }
+        lazyImage.onload = () => {
+            document.getElementById('map').style.backgroundImage = `url("${hole.image}")`;
+        };
     
         // Ajouter l'image au DOM
         document.body.appendChild(lazyImage); // Ajouter l'image au body ou à un conteneur adéquat
@@ -340,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const distance = hole.distances[color];
             holeInfosEl.innerHTML += `<div>Distance départ ${color}: ${distance}</div>`;
         });
+    }
     
 
     function displayResults() {
