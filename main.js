@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const satelliteViewButton = document.getElementById('satelliteViewButton');
     let currentHole = 0;
-    const totalHoles = 5;
+    const totalHoles = 3;
 
     let satelliteMap = null;
     let currentMarker = null;
@@ -146,15 +146,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    // startHoleButton.addEventListener('click', () => {
+    //     updateHistoryState('scoreStep', currentHole);
+    //     hideAllSteps();
+    //     scoreStep.style.display = 'block';
+    //     currentHoleNumberEl.textContent = currentHole + 1;
+    //     generateScoreForms();
+    // });
 
     startHoleButton.addEventListener('click', () => {
+        // Préparer l'image du prochain trou
+        const nextHole = golfApp.getCurrentHole() + 1;
+        if (nextHole < totalHoles) {
+            const nextImage = pub[nextHole];
+            const nextHoleImage = new Image();
+            nextHoleImage.src = nextImage;  // Précharger l'image pour le prochain trou
+        }
+    
         updateHistoryState('scoreStep', currentHole);
         hideAllSteps();
         scoreStep.style.display = 'block';
         currentHoleNumberEl.textContent = currentHole + 1;
         generateScoreForms();
     });
-
+    
 
     nextHoleButton.addEventListener('click', () => {
         const scoreInputs = document.querySelectorAll('#scoreForms input');
@@ -182,15 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // closeModal.addEventListener('click', () => {
-    //     modal.style.display = 'none';
-    //     if (golfApp.getCurrentHole() < totalHoles) {
-    //         updateHistoryState('holePresentationStep', currentHole);
-    //         hideAllSteps();
-    //         holePresentationStep.style.display = 'block';
-    //         showHolePresentation();
-    //     }
-    // });
 
 
     closeModal.addEventListener('click', () => {
@@ -291,11 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // function showModal() {
-    //     const modalImage = document.querySelector('.modal-image');
-    //     modalImage.src = pub[currentHole];
-    //     modal.style.display = 'block';
-    // }
+ 
 
     function showModal() {
         const modalImage = document.querySelector('.modal-image');
@@ -305,28 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
 
-    
-
-    //function showHolePresentation() {
-       // const hole = holes[currentHole];
-        //holeNumberEl.textContent = currentHole + 1;
-
-        //document.getElementById('map').style.backgroundImage = `url("${hole.image}")`;
-
-        //holeInfosEl.innerHTML = `
-          //  <div>Par: ${hole.par}</div>
-        //`;
-
-       // const uniqueColors = new Set(golfApp.getAllPlayers().map(player => player.color));
-
-        //uniqueColors.forEach(color => {
-          //  const distance = hole.distances[color];
-            //holeInfosEl.innerHTML += `<div>Distance départ ${color}: ${distance}</div>`;
-       // });
-   // }
 
 
-function showHolePresentation() {
+    function showHolePresentation() {
         const hole = holes[currentHole];
         holeNumberEl.textContent = currentHole + 1;
     
@@ -355,8 +338,7 @@ function showHolePresentation() {
             holeInfosEl.innerHTML += `<div>Distance départ ${color}: ${distance}</div>`;
         });
     }
-
-
+    
 
     function displayResults() {
         hideAllSteps(); 
