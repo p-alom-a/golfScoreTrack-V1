@@ -21,8 +21,60 @@ body {
 
 /* Menu*/
 
+#burgerMenu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: none; /* Par défaut, caché */
+}
 
+#burgerMenu button {
+  display: block;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
+#burgerMenu button:hover {
+  background-color: #f0f0f0;
+}
+
+#burgerMenu .menu-content {
+  display: none;
+}
+
+#burgerMenu.show .menu-content {
+  display: block;
+}
+
+/* Style pour le menu burger */
+.burger-icon {
+  font-size: 24px;
+}
+
+.menu-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-content li {
+  padding: 10px;
+}
+
+.menu-content li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-content li a:hover {
+  color: #007bff;}
 
 
 /* fin menu*/
@@ -143,6 +195,12 @@ button:hover {
 }
 
 /* tableau previous score */
+
+#scoreStep {
+  width: 20em;
+  margin: 1em;
+
+}
 .previous-scores {
   margin-bottom: 20px;
   font-size: 0.9em;
@@ -156,7 +214,7 @@ button:hover {
 .previous-scores table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px; /* Ajustez cette valeur en fonction de la largeur de votre table */
+  
 }
 
 .previous-scores th, .previous-scores td {
